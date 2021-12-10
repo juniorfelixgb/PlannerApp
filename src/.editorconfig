@@ -44,9 +44,6 @@ dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggest
 #Style - Modifier preferences
 
 #when this rule is set to a list of modifiers, prefer the specified ordering.
-csharp_preferred_modifier_order = static,async,public:suggestion
+csharp_preferred_modifier_order = public,static,async:suggestion
 
-file_header_template= ********************************************************************** \n
-                    ** CodingWithJunior - PlannerApp Application v1.0.0 \n
-                    ** Copyright (c) 2021 Microsoft Corporation \n
-                    **********************************************************************
+file_header_template= ********************************************************************** \n ** CodingWithJunior - PlannerApp Application v1.0.0 \n ** Copyright (c) 2021 Microsoft Corporation \n *********************************************************************
