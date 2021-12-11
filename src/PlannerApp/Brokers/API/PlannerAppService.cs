@@ -3,9 +3,11 @@
 //  ** Copyright (c) 2021 Microsoft Corporation 
 //  *********************************************************************
 
+using PlannerApp.Interfaces;
+
 namespace PlannerApp.Brokers.API
 {
-    public class PlannerAppService
+    public class PlannerAppService : IPlannerAppService
     {
     }
 }

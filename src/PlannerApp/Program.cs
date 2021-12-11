@@ -8,6 +8,7 @@ using PlannerApp.Shared.Models.Configurations;
 using PlannerApp.Brokers.Authentication;
 using Blazored.LocalStorage;
 using System.Net.Http;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace PlannerApp
 {
@@ -24,6 +25,8 @@ namespace PlannerApp
             builder.Services.AddTransient<AuthorizationMessageHandler>();
             builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient("PlannerAPI"));
             builder.Services.AddMudServices();
+            builder.Services.AddAuthorizationCore();
+            builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
             await builder.Build().RunAsync();
         }
     }
