@@ -1,14 +1,23 @@
-﻿// ********************************************************************** 
-//  ** CodingWithJunior - PlannerApp Application v1.0.0 
-//  ** Copyright (c) 2021 Microsoft Corporation 
-//  *********************************************************************
-
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using PlannerApp.Shared.Request;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PlannerApp.Components.Authentication
 {
     public partial class LoginForm : ComponentBase
     {
+        [Inject]
+        public HttpClient HttpClient { get; set; }
+        private LoginRequest model = new();
+        public LoginForm()
+        {
 
+        }
+        public async Task LoginUserAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
