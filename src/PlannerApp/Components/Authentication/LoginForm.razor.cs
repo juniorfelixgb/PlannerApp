@@ -15,7 +15,7 @@ namespace PlannerApp.Components.Authentication
         {
 
         }
-        public async Task LoginUserAsync()
+        public Task LoginUserAsync()
         {
             throw new NotImplementedException();
         }
