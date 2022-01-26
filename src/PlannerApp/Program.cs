@@ -1,15 +1,12 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using System.Threading.Tasks;
-using MudBlazor.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PlannerApp.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
-using PlannerApp.Shared.Models.Configurations;
-using PlannerApp.Brokers.Authentication;
-using Blazored.LocalStorage;
+using System.Collections.Generic;
 using System.Net.Http;
-using Microsoft.AspNetCore.Components.Authorization;
-using FluentValidation.AspNetCore;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PlannerApp
 {
@@ -17,18 +14,11 @@ namespace PlannerApp
     {
         public static async Task Main(string[] args)
         {
-            WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-            var plannerAppConfiguration = builder.Configuration.GetSection("PlannerAppConfiguration") as PlannerAppConfiguration;
-            builder.Services.AddBlazoredLocalStorage();
-            builder.Services.AddHttpClient<IPlannerAppService>("PlannerAPI",client => client.BaseAddress = new Uri(plannerAppConfiguration.BaseUrl))
-                            .AddHttpMessageHandler<AuthorizationMessageHandler>();
-            builder.Services.AddTransient<AuthorizationMessageHandler>();
-            builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient("PlannerAPI"));
-            builder.Services.AddMudServices();
-            builder.Services.AddAuthorizationCore();
-            builder.Services.AddFluentValidation();
-            builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
+
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
             await builder.Build().RunAsync();
         }
     }
