@@ -1,0 +1,35 @@
+﻿
+<EditForm Model="_loginRequest" 
+          OnValidSubmit="LoginUserAsync">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Welcome to PlannerApp V2.0</MudText>
+            </MudCardHeader>
+
+            <MudTextField Label="Email"
+                          HelperText="Required"
+                          @bind-Value="@_loginRequest.Email" />
+
+            <MudTextField InputType="InputType.Password" 
+                          Label="Password"
+                          HelperText="Required"
+                          @bind-Value="@_loginRequest.Password" />
+
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Outlined"
+                       Color="Color.Primary">Login</MudButton>
+
+            <MudButton Variant="Variant.Outlined"
+                       Color="Color.Secondary"
+                       Class="ml-1">Create Account</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+
+@code {
+
+}

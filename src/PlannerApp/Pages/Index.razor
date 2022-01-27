@@ -1,7 +1,22 @@
 ﻿@page "/"
+@using System.Security.Claims
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@*<AuthorizeView>
+    <Authorized>
+        <h2>Welcome @context.User.FindFirst(ClaimTypes.GivenName).Value</h2>
+    </Authorized>
+    <NotAuthorized>
+        <h2>Please login</h2>
+    </NotAuthorized>
+</AuthorizeView>*@
+
+
+@code {
+    
+}

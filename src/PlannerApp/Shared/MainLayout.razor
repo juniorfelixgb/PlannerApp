@@ -8,7 +8,7 @@
     </MudAppBar>
     <MudDrawer @bind-Open="@open" Breakpoint="@breakpoint" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h6">My App</MudText>
+            <MudText Typo="Typo.h6">PlannerApp V2.0</MudText>
         </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
@@ -18,6 +18,10 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
 
 @code {
     bool open = false;
@@ -29,8 +33,3 @@
         open = !open;
     }
 }
-
-
-<MudThemeProvider/>
-<MudDialogProvider/>
-<MudSnackbarProvider/>

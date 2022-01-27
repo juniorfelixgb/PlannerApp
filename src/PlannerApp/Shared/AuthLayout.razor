@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h5" Class="ml-3">PlannerApp</MudText>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor" Target="_blank" />
+    </MudAppBar>
+    <MudMainContent>
+        <MudGrid Justify="Justify.Center" Class="mt-3">
+            <MudItem sm="12" md="4" lg="3">
+                @Body
+            </MudItem>
+        </MudGrid>
+    </MudMainContent>
+</MudLayout>
+
+<MudThemeProvider/>
+
+@code {
+
+}
