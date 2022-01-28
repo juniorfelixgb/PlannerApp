@@ -13,4 +13,12 @@
     // Demonstrates how a parent component can supply parameters
     [Parameter]
     public string Title { get; set; }
+
+    [Parameter]
+    public EventCallback Ejecuta { get; set; }
+
+    private void EjecutaInterno()
+    {
+        Ejecuta.InvokeAsync();
+    }
 }
