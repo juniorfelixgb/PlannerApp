@@ -3,17 +3,13 @@
 //  ** Copyright (c) 2021 Microsoft Corporation 
 //  *********************************************************************
 
-using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace PlannerApp.Shared.Models
 {
-    public class LoginRequest
+    public class LoginResult
     {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
-        [Required]
-        [StringLength(20, MinimumLength = 6)]
-        public string Password { get; set; }
+        public string Token { get; set; }
+        public DateTime ExpiryDate { get; set; }
     }
 }

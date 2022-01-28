@@ -19,14 +19,14 @@ namespace PlannerApp
 
             builder.Services.AddHttpClient<IPlannerAPI>("PlannerAPI", config => config.BaseAddress = new Uri("https://plannerapp-api.azurewebsites.net"))
                             .AddHttpMessageHandler<AuthorizationMessageHandler>();
-
+            
             builder.Services.AddTransient<AuthorizationMessageHandler>();
             builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient("PlannerAPI"));
 
             builder.Services.AddMudServices();
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddAuthorizationCore();
-            builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
+            builder.Services.AddTransient<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
 
             await builder.Build().RunAsync();
         }

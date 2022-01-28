@@ -7,14 +7,14 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-@*<AuthorizeView>
+<AuthorizeView>
     <Authorized>
         <h2>Welcome @context.User.FindFirst(ClaimTypes.GivenName).Value</h2>
     </Authorized>
     <NotAuthorized>
-        <h2>Please login</h2>
+        <MudLink Href="/authentication/login">Login</MudLink>
     </NotAuthorized>
-</AuthorizeView>*@
+</AuthorizeView>
 
 
 @code {
