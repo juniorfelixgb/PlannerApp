@@ -42,6 +42,10 @@ namespace PlannerApp.Components.Authentication
             }
         }
 
+        private void RedirectToRegister()
+        {
+            NavigationManager.NavigateTo("/authentication/register");
+        }
         [Inject] public HttpClient HttpClient { get; set; }
         [Inject] public NavigationManager NavigationManager { get; set; }
         [Inject] public AuthenticationStateProvider AuthenticationStateProvider { get; set; }

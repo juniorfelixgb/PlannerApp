@@ -1,0 +1,64 @@
+﻿
+<EditForm Model="_registerRequest" 
+          OnValidSubmit="RegisterUserAsync">
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudCardHeader>
+                <MudCardContent>
+                    <MudText Typo="Typo.h6">Welcome to PlannerApp V2.0</MudText>
+                    <MudText Typo="Typo.body2">Create a new account</MudText>
+                </MudCardContent>
+            </MudCardHeader>
+
+            <MudTextField Label="Email"
+                          HelperText="Required"
+                          @bind-Value="@_registerRequest.Email" />
+
+            <MudTextField Label="First Name"
+                          HelperText="Required"
+                          @bind-Value="@_registerRequest.FirstName" />
+
+            <MudTextField Label="Last Name"
+                          HelperText="Required"
+                          @bind-Value="@_registerRequest.LastName" />
+
+            <MudTextField InputType="InputType.Password" 
+                          Label="Password"
+                          HelperText="Required"
+                          @bind-Value="@_registerRequest.Password" />
+
+            <MudTextField InputType="InputType.Password" 
+                          Label="Confirm Password"
+                          HelperText="Required"
+                          @bind-Value="@_registerRequest.ConfirmPassword" />
+
+            <ValidationSummary />
+            @if (!string.IsNullOrWhiteSpace(_errorMessage))
+            {
+                <MudAlert AlertTextPosition="AlertTextPosition.Center"
+                          Severity="Severity.Error"
+                          Variant="Variant.Filled"
+                          Class="my-2">@_errorMessage</MudAlert>
+            }
+
+        </MudCardContent>
+
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Disabled="_isBusy">Create Account</MudButton>
+
+            <MudButton Variant="Variant.Outlined"
+                       Color="Color.Secondary"
+                       Class="ml-1"
+                       OnClick="RedirectToLogin"
+                       Disabled="_isBusy">Login</MudButton>
+
+        </MudCardActions>
+
+    </MudCard>
+</EditForm>
+
+
